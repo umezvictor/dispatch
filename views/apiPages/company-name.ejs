@@ -1,0 +1,41 @@
+<div class="row" style="padding-top: 50px;"> 
+        <% include .././partials/api-side-menu %>
+        <div class="col-md-8">
+                <h1 class="mb-3 api-title">/companys/:name</h1>
+             <p>This API provides you with the name of a single company, based on your query parameter</p>
+                <hr>
+                <h1 class="mb-3 api-heading">Authentication</h1>
+                <p>This endpoint requires authentication</p>
+                   <hr>
+                   <h1 class="mb-3 api-heading">Example request</h1>
+                   <p class="api-paragraph">I want a list of all logistics companies</p>
+                   <p class="api-endpoint">http://localhost:3050/api/companys/Tranex</p>
+                   <br />
+                   <h1 class="mb-3 api-heading">JSON response</h1>
+                   
+                        
+                        
+                   <div>
+                      
+                            <pre class="pre-xy-scrollable prettyprint">
+                                    [
+                                    {
+                                        "_id": "5c6fee94a92dc21eec6efbfa",
+                                        "name": "Tranex",
+                                        "address": "Lagos",
+                                        "email": "tranex@yahoo.com",
+                                        "website": "www.tranex.com",
+                                        "services": "dispatch",
+                                        "updatedAt": "2019-02-22T12:44:04.446Z",
+                                        "createdAt": "2019-02-22T12:44:04.446Z",
+                                        "__v": 0
+                                    }
+                                ]
+                                
+                                        </pre>
+                       
+                      
+                   </div>    
+
+        </div>
+    </div>

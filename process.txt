@@ -1,0 +1,213 @@
+to kill node process
+PS C:\Users\theof\OneDrive\Desktop\V\dispatcher> taskkill /IM node.exe -F
+
+
+implement the following
+login
+password reset
+crud
+chatbot
+email sending/using contact form 
+api key creation
+admin dasboard to see all users
+live chat
+two factor authentication
+dashboard
+password reset
+search by name, auto suggest
+if user enters a few keywords, even if not correctly spent let record show
+ui design
+push notifiacation
+https://medium.com/@traversymedia/10-resources-for-free-website-app-themes-77928980c241
+https://hackerthemes.com/bootstrap-cheatsheet/   bs4 classes
+
+api endpoints
+name, 
+address, 
+telephone
+website
+charge_per_kg
+coverage{
+globalal_delivery: boolean,
+nationwide_delivery: boolean,
+}
+
+services[]
+
+
+
+sertvices of delivery companies
+deliveryman.ng
+tranex
+emporium delivery
+ezex delivery
+tranzit delivery
+neuron delivery
+red star express
+gal express'
+ace express
+gigiwide express
+http://giglogistics.ng/pickup-delivery-services/
+http://www.nationdelivery.com/
+https://www.nairaland.com/1820040/list-logistics-companies-use-within/1
+kobomart.com.ng
+Krixmas Logistics Services
+dhl expres
+ups
+kos deliveries
+fedex
+kobo
+abc express
+nipost ems speedpost
+http://www.funshologistics.com/services.html
+
+donboscong.com
+https://www.easydispatch.ng/
+https://chibykeglobal.com/blog/dispatch-parcel-delivery/
+easylogistics
+signature parcel
+mrdeliveryng.com
+www.zonelogisticserv.com/pickup-delivery/
+despatch.com.ng
+
+services = [
+    "sameday_delivery": {
+        available: true,
+        fee: 
+        
+    }
+    "next_day": {
+        available: true,
+        fee: 
+    },
+    "next_day": {
+        available: true,
+        fee: 
+    }
+]
+
+
+
+
+
+myObj = {
+  "name":"John",
+  "age":30,
+  "cars": [
+    { "name":"Ford", "models":[ "Fiesta", "Focus", "Mustang" ] },
+    { "name":"BMW", "models":[ "320", "X3", "X5" ] },
+    { "name":"Fiat", "models":[ "500", "Panda" ] }
+  ]
+ }
+
+
+
+ https://formspree.io/  send emails without backend coding
+
+ https://stackoverflow.com/questions/23111233/sending-email-from-static-html-page
+
+ ('smtps://info.vteck@gmail.com:password@smtp.gmail.com')
+
+ transporter = nodemailer.createTransport('smtps://your-gmail:password@smtp.gmail.com');
+
+https://stackoverflow.com/questions/41418737/send-email-via-nodemailer
+// transporter.sendMail({
+//     from: 'myemail@example.com',
+//     to: 'dikedigital@gmail.com', 
+//     subject: 'Hey you, awesome!',
+//     html: '<b>Wow Big powerful letters</b>',
+//     text: 'Mailgun rocks, pow pow!'
+// },  (err, info)=> {
+//     if (err) {
+//         console.log('Error: ' + err);
+//     }
+//     else {
+//         console.log('sent');
+//     }
+// });
+
+https://console.developers.google.com/apis/dashboard?pli=1&project=kinetic-axle-232407&folder=&organizationId=
+https://medium.com/@SeanChenU/send-mail-using-node-js-with-nodemailer-in-2-mins-c3f3e23f4a1
+
+client-id  30739813491-6f311qcubqat2tkmjpgq4dvtapfvar8r.apps.googleusercontent.com
+
+client secret  JV-uOpDa6R5TSkx6GAO_nPh0
+
+https://developers.google.com/oauthplayground/
+
+
+
+
+
+
+    var smtpTransport = nodemailer.createTransport({
+        service: 'Gmail',
+        auth: {
+          user: 'victorblaze2010@gmail.com',
+          pass: 'boninheaven'
+        }
+      });
+      
+      var mailOptions = {
+          from: 'victorblaze2010@gmail.com',
+          to: 'umezvictor123@gmail.com',
+          subject: 'Hello world!',
+          text: 'Plaintext message example.'
+      };
+      
+      smtpTransport.sendMail(mailOptions, function(err) {
+        console.log('Message sent!');
+        res.render('/contact');
+      });
+
+       //body of the mail
+//     const output = `
+//     <p>You have a new message</p>
+//     <h3>Contact details</h3>
+//     <ul>
+//         <li>Name: ${req.body.name}</li>
+//         <li>Email: ${req.body.email}</li>
+//     </ul>
+//     <h3>Message</h3>
+//     <p>${req.body.message}</p>
+// `;
+     
+
+//     //nodemailer
+//     let transporter = nodemailer.createTransport({
+//         host: 'smtpout.secureserver.net',
+//         //host: 'mail.zubar.com.ng',
+//         port: 465,
+//         secure: true,
+//         auth: {
+//             user: 'info@xthaffers.com',
+//             pass: '#1Success'
+            
+//         },
+//         tls:{
+//             rejectUnauthorized: false //when sending from localhost
+//         }
+//     });
+
+    
+// //setup mail data
+// let mailOptions = {
+//     from: '"Nodemailer contact" <info@xthaffers.com>', //sender address
+//     to: 'umezvictor123@gmail.com', //same as user, or list of receivers
+//     subject: 'Contact form request',
+//     text: 'hello', //plai
+//     n text body 
+//     html: output //html body
+// };
+
+// //send mail with transport object
+// transporter.sendMail(mailOptions, (error, info) => {
+//     if(error){
+//         return (console.log(error));
+//     }
+
+//     console.log('Mesage sent: %s', info.messageId);
+//     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+//     //req.flash('success_msg', 'Your message has been sent successfully');
+//     res.render('/contact');
+// });

@@ -1,0 +1,45 @@
+.api-links, li, a{
+    font-size: 12px;
+	color: #000;
+    text-decoration: none;
+}
+.api-title{
+    font-size: 40px; 
+    font-weight: bold; 
+    color: #6B8E23;
+}
+
+.api-heading{
+    font-size:13px;
+    color: #000;
+}
+
+.api-paragraph{
+    font-size:13px;
+    color: #000; 
+    margin-bottom: 13px;
+}
+
+.api-endpoint{
+    font-size:13px;
+    color: blue; 
+}
+
+
+  
+      .pre-x-scrollable {
+        overflow: auto;
+        -ms-word-wrap: normal;
+        word-wrap: normal;
+        overflow-wrap: normal;
+        white-space: pre;
+    }
+
+    .pre-xy-scrollable {
+        overflow: auto;
+        -ms-word-wrap: normal;
+        word-wrap: normal;
+        overflow-wrap: normal;
+        white-space: pre;
+        max-height: 340px;
+    }
