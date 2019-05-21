@@ -3,7 +3,9 @@ const router = express.Router();
 //const passport = require('passport');
 const { ensureAuthenticated } = require('../config/auth');
 const nodemailer = require ('nodemailer');
-const xoauth2 = require('xoauth2');
+const sendgridTransport = require('nodemailer-sendgrid-transport');
+const config = require('../config/keys');
+//const xoauth2 = require('xoauth2');
 //home page
 router.get('/', (req, res) => res.render('home'));
 
@@ -25,71 +27,29 @@ router.post('/contact', (req, res) => {
     <p>${req.body.message}</p>
 `;
 
-  const transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            //host: 'mail.zubar.com.ng',
-            port: 587,
-            secure: false,
-            auth: {
-                user: 'victorblaze2010@gmail.com',
-                pass: 'boninheaven'
-                
-            },
-            tls:{
-                rejectUnauthorized: false //when sending from localhost
-            }
-        });
-    
-        
-    //setup mail data
-    const mailOptions = {
-        from: '"Nodemailer contact" <victorblaze2010@gmail.com>', //sender address
-        to: 'umezvictor123@gmail.com', //same as user, or list of receivers
-        subject: 'Contact form request',
-        text: 'hello', //plai
-        html: output //html body
+  const transporter = nodemailer.createTransport(sendgridTransport({
+      auth: {
+          api_key: config.SendGridKey1
+      }
+  }));
+
+  const mailOptions = {
+    to: 'victorblaze2010@gmail.com',
+    from: req.body.email,
+    subject: 'New User Message',
+    html: output
     };
     
-    //send mail with transport object
-    transporter.sendMail(mailOptions, (error, info) => {
-        if(error){
-            return (console.log(error));
-        }
-    
-        console.log('Mesage sent: %s', info.messageId);
-        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-        //req.flash('success_msg', 'Your message has been sent successfully');
-        res.render('/contact');
-    });
-
-  // var transporter = nodemailer.createTransport({
-  //   service: 'gmail',
-  //   auth: {
-  //     xoauth2: xoauth2.createXOAuth2Generator({
-  //       user: 'victorblaze2010@gmail.com',
-  //       clientId: '30739813491-ii29v5ift5blrg5lg4jks9pb7je6dq6n.apps.googleusercontent.com',
-  //       clientSecret: '3CSHvhysnC1NEYM7a2ctaefq',
-  //       refreshToken: ''
-  //     })
-  //   }
-  // });//end of transporter
-
-  // //mail options
-  // var mailOptions = {
-  //   from: 'Victor <victorblaze2010@gmail.com>',
-  //   to: 'umezvictor123@gmail.com',
-  //   subject: 'Nodemailer mail test',
-  //   text: 'hello bro'
-  // } 
-
-  // //send mail
-  // transporter.sendMail(mailOptions, function(err, res) {
-  //   if(err){
-  //     console.log('error occured');
-  //   } else{
-  //     console.log('email sent');
-  //   }
-  // });
+  //send mail
+  transporter.sendMail(mailOptions, function(err, res) {
+    if(err){
+      console.log('error occured');
+    } else{
+      console.log('email sent');
+    }
+  });
+  req.flash( 'success_msg', 'your message has been sent successfully' );
+  res.redirect('/contact');
 
  });
 

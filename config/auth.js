@@ -1,5 +1,6 @@
 //here I used a pasport method for conditional rendering of pages
 //redirects user to login page if not authenticated
+//we can add ensureAuthenticated to any view we want to protect
 module.exports = {
     ensureAuthenticated: function(req, res, next) {
         if(req.isAuthenticated()){
@@ -10,4 +11,3 @@ module.exports = {
     }
 }
 
-//we can add ensureAuthenticated to any view we want to protect

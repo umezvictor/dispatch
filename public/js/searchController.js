@@ -13,9 +13,9 @@ async function apiGetAll (company) {
                     <tbody>
                         <tr>
                             <td>${item.name}</td>
-                            <td>${item.email}</td>
-                            <td>${item.phone}</td>
-                            <td>${item.website}</td>
+                            <td><i class="far fa-envelope"></i> ${item.email}</td>
+                            <td><i class="fas fa-phone"></i>0${item.phone}</td>
+                            <td><a href="${item.website}" target="blank">Visit website <i class="fas fa-link"></i></a></td>
                             
 
                         </tr>
@@ -26,15 +26,16 @@ async function apiGetAll (company) {
 
           
          if(data.length < 1 ){
-            showAlert('No record found', 'alert alert-danger')
+            showAlert('No record found', 'alert alert-danger');
          }
       
     } catch (err) {
-         console.log(err)
+         console.log(err);
       }
  }
  
 
+ //run apiGetAll when user makes an input 
 const input = document.getElementById('searchText');
 input.addEventListener('keyup', (e) => {
     const inputText = e.target.value;

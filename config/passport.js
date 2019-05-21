@@ -12,10 +12,10 @@ const User = require('../models/User');
 //export module, here passport is not declared above but passed as a parameter in the function below
 module.exports = function(passport) {
     passport.use(
-        //email is the username field for this app
+        //email is the username field for this app, localstrategy is uused here, 
         new LocalStrategy ({ usernameField: 'email' }, (email, password, done) => {
             //match user,
-            User.findOne({ email: email })
+            User.findOne({ email: email })//returns a promise
                 .then(user => {
                     if(!user) {
                         return done(null, false, { message: 'Email not registered' });
@@ -37,7 +37,7 @@ module.exports = function(passport) {
         })
     );
 
-    //serialize and deserialize user //setting idd as cookie in browser
+    //serialize and deserialize user //setting user id as cookie in browser
     passport.serializeUser((user, done) => {
         done(null, user.id);
     });

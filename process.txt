@@ -41,7 +41,7 @@ deliveryman.ng
 tranex
 emporium delivery
 ezex delivery
-tranzit delivery
+tranzit delivery   not verified
 neuron delivery
 red star express
 gal express'
@@ -87,7 +87,7 @@ services = [
 ]
 
 
-
+SGridKey   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
 
 
 myObj = {
@@ -137,77 +137,3 @@ https://developers.google.com/oauthplayground/
 
 
 
-
-
-
-    var smtpTransport = nodemailer.createTransport({
-        service: 'Gmail',
-        auth: {
-          user: 'victorblaze2010@gmail.com',
-          pass: 'boninheaven'
-        }
-      });
-      
-      var mailOptions = {
-          from: 'victorblaze2010@gmail.com',
-          to: 'umezvictor123@gmail.com',
-          subject: 'Hello world!',
-          text: 'Plaintext message example.'
-      };
-      
-      smtpTransport.sendMail(mailOptions, function(err) {
-        console.log('Message sent!');
-        res.render('/contact');
-      });
-
-       //body of the mail
-//     const output = `
-//     <p>You have a new message</p>
-//     <h3>Contact details</h3>
-//     <ul>
-//         <li>Name: ${req.body.name}</li>
-//         <li>Email: ${req.body.email}</li>
-//     </ul>
-//     <h3>Message</h3>
-//     <p>${req.body.message}</p>
-// `;
-     
-
-//     //nodemailer
-//     let transporter = nodemailer.createTransport({
-//         host: 'smtpout.secureserver.net',
-//         //host: 'mail.zubar.com.ng',
-//         port: 465,
-//         secure: true,
-//         auth: {
-//             user: 'info@xthaffers.com',
-//             pass: '#1Success'
-            
-//         },
-//         tls:{
-//             rejectUnauthorized: false //when sending from localhost
-//         }
-//     });
-
-    
-// //setup mail data
-// let mailOptions = {
-//     from: '"Nodemailer contact" <info@xthaffers.com>', //sender address
-//     to: 'umezvictor123@gmail.com', //same as user, or list of receivers
-//     subject: 'Contact form request',
-//     text: 'hello', //plai
-//     n text body 
-//     html: output //html body
-// };
-
-// //send mail with transport object
-// transporter.sendMail(mailOptions, (error, info) => {
-//     if(error){
-//         return (console.log(error));
-//     }
-
-//     console.log('Mesage sent: %s', info.messageId);
-//     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-//     //req.flash('success_msg', 'Your message has been sent successfully');
-//     res.render('/contact');
-// });

@@ -46,7 +46,7 @@ router.post('/companys', ensureAuthenticated, async (req, res) => {
     }
 
         const { name, location, phone, email, website, services } = req.body;//destructuring es6 format
-
+    //create new Company object
         const company = new Company({
             name,
             location,
@@ -85,7 +85,7 @@ router.put('/companys/:id', ensureAuthenticated, async(req, res) => {
         res.send({msg: "only json format allowed"})
     }
 
-    //update data by id
+    //update data by id, id field must match the id in the url query parameter
     try {
         const company = await Company.findByIdAndUpdate({_id: req.params.id}, req.body);
         res.sendStatus(200);//ok
